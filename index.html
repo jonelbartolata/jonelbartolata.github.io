@@ -44,6 +44,13 @@
       padding: 10px; /* Padding around the text */
       border-radius: 5px; /* Rounded corners for the caption */
     }
+    .carousel-indicators [data-bs-target] {
+      background-color: #fff; /* White color for the indicators */
+      opacity: 0.5; /* Slight transparency */
+    }
+    .carousel-indicators .active {
+      opacity: 1; /* Fully opaque for the active indicator */
+    }
   </style>
 </head>
 <body>
@@ -81,6 +88,15 @@
       <div class="col-md-6">
         <div class="carousel-container">
           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+
             <div class="carousel-inner">
               <div class="carousel-item active" 
                    data-title="Project 1: " 
@@ -115,7 +131,7 @@
               <div class="carousel-item" 
                    data-title="Project 4:" 
                    data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
-                   data-link="https://example.com/blog" 
+                   data-link="https://example.com/game" 
                    data-bgimage="https://hdqwalls.com/download/1/forest-mountains-3v-1920x1080.jpg">
                 <img src="https://hdqwalls.com/download/1/forest-mountains-3v-1920x1080.jpg" alt="Project 4">
                 <div class="carousel-caption d-none d-md-block">
@@ -125,7 +141,7 @@
               <div class="carousel-item" 
                    data-title="Project 5:" 
                    data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
-                   data-link="https://example.com/blog" 
+                   data-link="https://example.com/app" 
                    data-bgimage="https://s1.1zoom.me/big7/303/Mountains_Forests_484865.jpg">
                 <img src="https://s1.1zoom.me/big7/303/Mountains_Forests_484865.jpg" alt="Project 5">
                 <div class="carousel-caption d-none d-md-block">
@@ -134,7 +150,6 @@
               </div>
             </div>
 
-            <!-- Slider Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -149,32 +164,37 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS Bundle -->
+  <!-- Bootstrap JS Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JavaScript to Change Text and Background Based on Slider -->
   <script>
-    const carousel = document.getElementById('carouselExample');
-    const projectTitle = document.getElementById('projectTitle');
-    const projectDescription = document.getElementById('projectDescription');
+    // Update the title and description based on the active carousel item
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const titleElement = document.getElementById('projectTitle');
+    const descriptionElement = document.getElementById('projectDescription');
     const learnMoreButton = document.getElementById('learnMoreButton');
+    const body = document.body; // Reference to the body for changing the background
 
-    // Event listener to update text and background when the carousel slides
-    carousel.addEventListener('slide.bs.carousel', (event) => {
-      const activeItem = event.relatedTarget; // Get the new active item
-
-      // Update the left-side content based on the data attributes of the active carousel item
-      projectTitle.textContent = activeItem.getAttribute('data-title');
-      projectDescription.textContent = activeItem.getAttribute('data-description');
-      learnMoreButton.onclick = () => {
-        window.open(activeItem.getAttribute('data-link'), '_blank');
+    function updateContent(index) {
+      const item = carouselItems[index];
+      titleElement.textContent = item.getAttribute('data-title');
+      descriptionElement.textContent = item.getAttribute('data-description');
+      learnMoreButton.onclick = function() {
+        window.open(item.getAttribute('data-link'), '_blank');
       };
 
-      // Change the background image of the body
-      const newBgImage = activeItem.getAttribute('data-bgimage');
-      document.body.style.backgroundImage = `url('${newBgImage}')`;
-    });
-  </script>
+      // Change the background image based on the current carousel item
+      const bgImage = item.getAttribute('data-bgimage');
+      body.style.backgroundImage = `url(${bgImage})`;
+    }
 
+    // Listen for slide events to update content
+    const carousel = document.getElementById('carouselExample');
+    carousel.addEventListener('slide.bs.carousel', function (event) {
+      updateContent(event.to);
+    });
+
+    // Initialize content for the first slide
+    updateContent(0);
+  </script>
 </body>
 </html>
