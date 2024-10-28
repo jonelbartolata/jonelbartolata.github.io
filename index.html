@@ -1,157 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - JCB Project</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JCB - Projects</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background-image: url('https://th.bing.com/th/id/R.d8d0a987a44cbf759b620b8f67cd55b0?rik=wckeTLl8YDUSyQ&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f06%2fHD-Download-Night-Sky.jpg&ehk=3F5iaBYX3mAYMScLg2XOyPGBXLhF3%2f0ruGcXLcot3aE%3d&risl=1&pid=ImgRaw&r=0');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-color: #1c1c1c;
-            color: #f1f1f1;
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Navbar style or design! */
-        .navbar {
-            background-color: #2d2d2d;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .nav-link {
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #74b9ff;
-        }
-
-        /* Main section */
-        .main-content {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #b2bec3;
-        }
-
-        .btn-custom {
-            width: 180px;
-            padding: 12px;
-            margin: 10px;
-            border-radius: 30px;
-            font-weight: 500;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background-color: #3498db;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            border-color: #3498db;
-            color: #3498db;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #2d2d2d;
-            color: #b2bec3;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .btn-custom {
-                width: 100%;
-            }
-        }
-    </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://th.bing.com/th/id/R.f1a505f778195ec08d4693cb70ec59fd?rik=%2fLHc4Iza6h19Zg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fb%2f3%2fd%2f608157.jpg&ehk=IyXCK%2bCJzi%2bPMl9s3X10jbrD7UJftWXsSK%2bKIDsxfek%3d&risl=&pid=ImgRaw&r=0'); /* Default background image */
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.5s ease; /* Smooth transition for background image */
+    }
+    h1, p {
+      color: #ffffff; 
+    }
+    .carousel-container {
+      border-radius: 20px;
+      overflow: hidden; /* Ensures the rounded border applies to images */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .carousel-item {
+      height: 320px; /* Reduced height for the carousel items */
+    }
+    .carousel-item img {
+      height: 100%; /* Make image height 100% of the carousel item */
+      object-fit: cover; /* Ensure the image covers the entire item without stretching */
+      width: 100%; /* Set image width to 100% */
+    }
+    /* Transparent Navbar */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 20px; /* Position the caption at the bottom of the carousel */
+      left: 0;
+      right: 0;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+      padding: 10px; /* Padding around the text */
+      border-radius: 5px; /* Rounded corners for the caption */
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">JCB Home Page</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="AboutMe.html">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <div>
-            <h1>Welcome to JCB Home Page</h1>
-            <p>Explore my latest projects and works as I grow and learn.</p>
-
-            <!--5 Button -->
-            <a href="#" class="btn btn-custom btn-primary">Project 1</a>
-            <a href="#" class="btn btn-custom btn-primary">Project 2</a>
-            <a href="#" class="btn btn-custom btn-primary">Project 3</a>
-            <a href="#" class="btn btn-custom btn-primary">Project 4</a>
-            <a href="#" class="btn btn-custom btn-primary">Project 5</a>
-        </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">My Projects</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="AboutMe.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="Contact.html">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Main Content -->
+  <div class="container-fluid mt-4">
+    <div class="row vh-100 align-items-center">
+      <!-- Left Section: Text changes dynamically -->
+      <div class="col-md-6 text-center text-md-start p-4">
+        <h1 id="projectTitle">Project 1: Portfolio Website</h1>
+        <p class="lead" id="projectDescription">
+          This project showcases a personal portfolio website that highlights my skills, experience, and achievements.
+        </p>
+        <button class="btn btn-success btn-lg mt-3" id="learnMoreButton">Learn More</button>
+      </div>
+
+      <!-- Right Section: Image Slider with Container -->
+      <div class="col-md-6">
+        <div class="carousel-container">
+          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" 
+                   data-title="Project 1: " 
+                   data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
+                   data-link="https://example.com/portfolio" 
+                   data-bgimage="https://th.bing.com/th/id/R.f1a505f778195ec08d4693cb70ec59fd?rik=%2fLHc4Iza6h19Zg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fb%2f3%2fd%2f608157.jpg&ehk=IyXCK%2bCJzi%2bPMl9s3X10jbrD7UJftWXsSK%2bKIDsxfek%3d&risl=&pid=ImgRaw&r=0">
+                <img src="https://th.bing.com/th/id/R.f1a505f778195ec08d4693cb70ec59fd?rik=%2fLHc4Iza6h19Zg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fb%2f3%2fd%2f608157.jpg&ehk=IyXCK%2bCJzi%2bPMl9s3X10jbrD7UJftWXsSK%2bKIDsxfek%3d&risl=&pid=ImgRaw&r=0" alt="Project 1">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Project 1</h5>
+                </div>
+              </div>
+              <div class="carousel-item" 
+                   data-title="Project 2:" 
+                   data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
+                   data-link="https://example.com/ecommerce" 
+                   data-bgimage="https://th.bing.com/th/id/R.e120db4540878d1d38d12d12534729f9?rik=U8tUed1EOt%2bfnQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-_OmnS725SEE%2fUmwe6IWUs5I%2fAAAAAAAABRE%2fqcSwQBkh4cA%2fs1600%2fhd%2bwallpapers%2b1080p%2bforest__005.jpg&ehk=H7qgKNRgUTZHL0mgEdNJMHPaQoo53J10OnYwS7fjqGk%3d&risl=&pid=ImgRaw&r=0">
+                <img src="https://th.bing.com/th/id/R.e120db4540878d1d38d12d12534729f9?rik=U8tUed1EOt%2bfnQ&riu=http%3a%2f%2f4.bp.blogspot.com%2f-_OmnS725SEE%2fUmwe6IWUs5I%2fAAAAAAAABRE%2fqcSwQBkh4cA%2fs1600%2fhd%2bwallpapers%2b1080p%2bforest__005.jpg&ehk=H7qgKNRgUTZHL0mgEdNJMHPaQoo53J10OnYwS7fjqGk%3d&risl=&pid=ImgRaw&r=0" alt="Project 2">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Project 2</h5>
+                </div>
+              </div>
+              <div class="carousel-item" 
+                   data-title="Project 3:" 
+                   data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
+                   data-link="https://example.com/blog" 
+                   data-bgimage="https://th.bing.com/th/id/R.6b70eca17b73ea64302a9350b0a903e4?rik=tRXj1Bzah0uyMw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fLiSEiMS.jpg&ehk=cSaBSCUb94kzjDG5mwwcOpLx4Kma5ssE5rYJHfTj4u4%3d&risl=&pid=ImgRaw&r=0">
+                <img src="https://th.bing.com/th/id/R.6b70eca17b73ea64302a9350b0a903e4?rik=tRXj1Bzah0uyMw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fLiSEiMS.jpg&ehk=cSaBSCUb94kzjDG5mwwcOpLx4Kma5ssE5rYJHfTj4u4%3d&risl=&pid=ImgRaw&r=0" alt="Project 3">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Project 3</h5>
+                </div>
+              </div>
+              <div class="carousel-item" 
+                   data-title="Project 4:" 
+                   data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
+                   data-link="https://example.com/blog" 
+                   data-bgimage="https://hdqwalls.com/download/1/forest-mountains-3v-1920x1080.jpg">
+                <img src="https://hdqwalls.com/download/1/forest-mountains-3v-1920x1080.jpg" alt="Project 4">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Project 4</h5>
+                </div>
+              </div>
+              <div class="carousel-item" 
+                   data-title="Project 5:" 
+                   data-description="This project showcases a personal portfolio website that highlights my skills, experience, and achievements." 
+                   data-link="https://example.com/blog" 
+                   data-bgimage="https://s1.1zoom.me/big7/303/Mountains_Forests_484865.jpg">
+                <img src="https://s1.1zoom.me/big7/303/Mountains_Forests_484865.jpg" alt="Project 5">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Project 5</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript to Change Text and Background Based on Slider -->
+  <script>
+    const carousel = document.getElementById('carouselExample');
+    const projectTitle = document.getElementById('projectTitle');
+    const projectDescription = document.getElementById('projectDescription');
+    const learnMoreButton = document.getElementById('learnMoreButton');
+
+    // Event listener to update text and background when the carousel slides
+    carousel.addEventListener('slide.bs.carousel', (event) => {
+      const activeItem = event.relatedTarget; // Get the new active item
+
+      // Update the left-side content based on the data attributes of the active carousel item
+      projectTitle.textContent = activeItem.getAttribute('data-title');
+      projectDescription.textContent = activeItem.getAttribute('data-description');
+      learnMoreButton.onclick = () => {
+        window.open(activeItem.getAttribute('data-link'), '_blank');
+      };
+
+      // Change the background image of the body
+      const newBgImage = activeItem.getAttribute('data-bgimage');
+      document.body.style.backgroundImage = `url('${newBgImage}')`;
+    });
+  </script>
+
 </body>
 </html>
