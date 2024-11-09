@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1 - Surigao</title>
+    <title>Visit East Luwu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* CSS Styles */
@@ -11,25 +11,26 @@
             background-color: #000;
             color: #fff;
             font-family: Arial, sans-serif;
-            padding-top: 0;
+            padding-top: 0; /* Add space for fixed navbar */
         }
 
         .header {
-            background-image: url('https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg'); 
+            background-image: url('https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg'), linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1)); /* Gradient to blend */
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             height: 100vh;
             padding-left: 30px;
             text-align: left;
+            position: relative;
         }
 
         .header-text {
             max-width: 600px;
+            color: white;
+            z-index: 2; /* Ensure the text stays above the gradient */
         }
 
         .header-text h1 {
@@ -51,6 +52,8 @@
             max-width: 1200px;
             margin: 50px auto;
             min-height: 600px;
+            background-color: #000; /* This ensures the body starts as black */
+            padding-top: 50px; /* Adds some spacing below the header */
         }
 
         .content-section h2 {
@@ -76,13 +79,13 @@
 
         /* Navbar */
         .navbar {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            position: fixed;
+            background-color: transparent !important; /* Transparent background */
+            position: fixed; /* Fix navbar to the top */
             width: 100%;
             top: 0;
             left: 0;
-            z-index: 1000; 
-            padding: 5px 0;
+            z-index: 1000; /* Ensure navbar stays on top */
+            padding: 20px 0;
         }
 
         .navbar-brand, .nav-link {
@@ -91,9 +94,8 @@
         }
 
         .navbar-nav .nav-link:hover {
-            color: #f39c12 !important;
+            color: #f39c12 !important; /* Add hover color */
         }
-
 
         .footer {
             background-color: #222;
@@ -141,7 +143,7 @@
     <!-- Navigation Section -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand text-white" href="#">Project 1</a>
+            <a class="navbar-brand text-white" href="#">Visit East Luwu</a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="#waterfall">Waterfall</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="#lake">Lake</a></li>
@@ -153,18 +155,15 @@
     <!-- Header Section -->
     <header class="header">
         <div class="header-text">
-            <h1 id="header-title">VISIT SURIGAO</h1>
-            <p>Surigao is a city located in the northeastern tip of Mindanao Island, Philippines
-             Known for its stunning beaches, crystal-clear waters, and vibrant marine life, Surigao is a paradise for nature lovers and adventure seekers.
-            Explore the enchanting Sohoton Cove, surf the famous Cloud 9 waves in Siargao, or dive into the rich underwater world of the Surigao
-            Discover the hidden gems of Surigao and experience the warm hospitality of its people.
-            </p>
-            <!-- Line to separate the sections -->
-    <div class="section-line"></div>
+            <h1 id="header-title">VISIT EAST LUWU</h1>
+            <p>Lake Matano is an ancient tectonic lake...</p>
+            <p>There are beaches that have very strong Balinese nuances...</p>
+            <p>Discover the wonders of East Luwu through its hidden gems!</p>
         </div>
     </header>
 
-    
+    <!-- Line to separate the sections -->
+    <div class="section-line"></div>
 
     <!-- Main Content Section -->
     <section class="content-section container my-5" id="places">
@@ -174,22 +173,22 @@
                 <!-- Waterfall Image -->
                 <div class="col-md-3 place">
                     <img src="https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg" alt="Mata Buntu Waterfall">
-                    <p>1st place City</p>
+                    <p>1st place Mata Buntu Waterfall</p>
                 </div>
                 <!-- Beach Image -->
                 <div class="col-md-3 place">
                     <img src="https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg" alt="Ujung Suso Beach">
-                    <p>2nd place Beach</p>
+                    <p>2nd place Ujung Suso Beach</p>
                 </div>
                 <!-- Waterfall Image -->
                 <div class="col-md-3 place">
                     <img src="https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg" alt="Kali Dingin Waterfall">
-                    <p>3rd Waterfall</p>
+                    <p>3rd place Kali Dingin Waterfall</p>
                 </div>
                 <!-- Lake Image -->
                 <div class="col-md-3 place">
                     <img src="https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg" alt="Matano Lake">
-                    <p>4th place Lake</p>
+                    <p>4th place Matano Lake</p>
                 </div>
             </div>
         </div>
