@@ -12,12 +12,62 @@
             color: #fff;
             font-family: Arial, sans-serif;
         }
-
+       
         .header {
-            background-image: url('https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg'); /* Replace with actual image path */
-            background-size: cover;
+            background-image: url('https://365greatpinoystuff.wordpress.com/wp-content/uploads/2010/06/tinuyan-falls.jpg'); 
             background-position: center;
-            padding: 100px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .header-text {
+            max-width: 600px;
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .section-line {
+            border-top: 2px solid #fff;
+            margin-top: 50px;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            min-height: 600px;
+        }
+
+        .content-section h2 {
+            color: #fff;
+        }
+
+        /* Image Layout */
+        .place {
+            margin-bottom: 20px;
+        }
+
+        .place img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .place img:hover {
+            transform: scale(1.05);
         }
 
         .navbar {
