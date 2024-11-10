@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visit Japan</title>
+    <title>Project 1 - Japan</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -36,6 +36,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
@@ -79,7 +80,7 @@
             color: #fff;
             margin-bottom: 20px;
             cursor: pointer;
-            transition: transform 0.3s ease, transform 0.5s ease-out;
+            transition: transform 0.3s ease;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
@@ -102,7 +103,7 @@
         }
 
         .spot-card.clicked img {
-            transform: translateY(60px); /* Moves the image down */
+            transform: translateY(80px); /* Moves the image down */
         }
 
         /* Parallax Scrolling Effect */
@@ -133,78 +134,95 @@
         }
 
         .details-section {
-            display: flex;
-            position: relative;
-            justify-content: space-between;
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
+    display: flex;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+    position: relative;
+    justify-content: space-between;
+    height: auto; /* Adjust height for mobile */
+    background-size: cover;
+    background-position: center;
         }
 
         .details-content {
-            flex: 1;
-            position: relative;
-            top: 30%;
-            left: 10%;
-            transform: translateY(-50%);
-            text-align: left;
-            padding: 20px;
-            max-width: 50%; 
-        }
+    flex: 1 1 100%; /* Allow it to take full width on smaller screens */
+    position: relative;
+    top: 120px;
+    transform: translateY(-50%);
+    text-align: center;
+    padding: 20px;
+    max-width: 100%; /* Remove max-width to allow flexibility */
+}
+        
 
-        .details-title {
-            font-size: 5vw; 
-            font-weight: bold;
-            margin-bottom: 10px;
+.details-title {
+    font-size: 4rem; /* Adjust title size */
+    font-weight: bold;
+    margin-bottom: 10px;
         }
 
         .details-description {
-            font-size: 1.5rem;
-            line-height: 1.6;
+    font-size: 1.2rem; /* Reduce font size for mobile */
+    line-height: 1.6;
+    text-align: center;
         }
 
         
         .details-video-holder {
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            top: 30%;
-            transform: translateY(-50%);
-            padding: 20px;
+    flex: 1 1 100%; /* Ensure video holder takes full width on smaller screens */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200px;
+    transform: translateY(-50%);
+    padding: 20px;
         }
 
-        .details-video-holder video {
-            width: 100%; 
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-        }
+        .details-video-holder iframe {
+        width: 80%; 
+        max-width: 600px;
+        height: 350px; 
+        border-radius: 10px;
+    }
+        
+@media (max-width: 768px) {
+    .details-title {
+        font-size: 6vw; 
+    }
 
-        /* Media Queries for responsiveness */
-        @media (max-width: 768px) {
-            .details-title {
-                font-size: 8vw; 
-            }
+    .details-description {
+        font-size: 1rem; 
+    }
 
-            .details-description {
-                font-size: 1.2rem;
-            }
+    .details-content {
+        padding: 10px;
+    }
 
-            .details-video-holder {
-                max-width: 100%; 
-            }
-        }
+    .details-video-holder {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
 
-        @media (max-width: 480px) {
-            .details-title {
-                font-size: 10vw; /* Make title larger on very small screens */
-            }
+@media (max-width: 480px) {
+    .details-title {
+        font-size: 8vw; /* Make title larger on very small screens */
+    }
 
-            .details-description {
-                font-size: 1rem; /* Further adjust description size */  
-            }
-        }
+    .details-description {
+        font-size: 0.9rem; /* Further adjust description size */
+    }
+
+    .details-content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .details-video-holder {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -217,10 +235,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Tours</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                <li class="nav-item active"><a class="nav-link" href="index.html">Go back to the Project list</a></li>
             </ul>
         </div>
     </nav>
@@ -229,13 +244,13 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content text-white">
-            <h1 class="hero-title">VISIT JAPAN</h1>
-            <p>Welcome to the Japan National Tourism</p>
+            <h1 class="hero-title">JAPAN</h1>
+            <p>Welcome to the Japan guide</p>
         </div>
     </section>
 
     <!-- Info Section -->
-    <div class="info-section">
+    <div class="info-section" >
         <div>
             <i class="fas fa-map-marker-alt info-icon"></i>
             <p>Guided Tours</p>
@@ -273,50 +288,48 @@
             <p class="details-description">Detailed description of the spot.</p>
         </div>
         <div class="details-video-holder">
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe id="videoFrame" width="100%" height="auto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+        
     </section>
 
     <script>
         let spots = [
             {
                 title: "Tokyo",
-                description: "A bustling metropolis that perfectly blends the old and the new. From ancient temples like Senso-ji to modern marvels like Tokyo Skytree, Tokyo offers a unique cultural experience. Don't miss the vibrant neighborhoods of Shibuya and Shinjuku.",
+                description: "A bustling metropolis known for its mix of modern and traditional attractions, including the Tokyo Tower, Shibuya Crossing, and historic temples",
                 image: "https://media.cntraveler.com/photos/63482b255e7943ad4006df0b/16:9/w_2560%2Cc_limit/tokyoGettyImages-1031467664.jpeg",
-                video: "https://example.com/tokyo_tower_video.mp4"
+                video: "https://youtu.be/yrGBH6ICN2w?si=nWvDSurKnk_Yh9yB"
             },
             {
-                title: "Tokyo Tower",
-                description: "A symbol of Japan's beauty.",
-                image: "https://example.com/tokyo_tower.jpg",
-                video: "https://example.com/tokyo_tower_video.mp4"
+                title: "Mount Fujir",
+                description: "Japan's highest peak and a UNESCO World Heritage site, offering breathtaking views and hiking opportunities",
+                image: "https://japanspecialist.com/o/adaptive-media/image/472302/large/1_mt_fuji.jpg?t=1673014294450",
+                video: "https://youtu.be/GlLOtuQ0XIY?si=nf4JBoc7nHrG92j5"
             },
             {
-                title: "Tokyo Tower",
-                description: "A symbol of Japan's beauty.",
-                image: "https://example.com/tokyo_tower.jpg",
-                video: "https://example.com/tokyo_tower_video.mp4"
+                title: "Kyoto",
+                description: "Famous for its well-preserved temples, traditional wooden houses, and beautiful gardens. Don't miss the Fushimi Inari Shrine and Kinkaku-ji (Golden Pavilion)",
+                image: "https://prd-static.gltjp.com/glt/data/article/21000/20205/20230703_160551_f036a4c1_w1920.webp",
+                video: "https://youtu.be/3Z5VS_Lm4Ac?si=UVqT1USPbCkfMV5c"
             },
             {
-                title: "Tokyo Tower",
-                description: "A symbol of Japan's beauty.",
-                image: "https://example.com/tokyo_tower.jpg",
-                video: "https://example.com/tokyo_tower_video.mp4"
+                title: "Osaka",
+                description: "Known for its vibrant nightlife, delicious street food, and landmarks like Osaka Castle and Universal Studios Japan",
+                image: "https://media.cntraveler.com/photos/66da1701ca987cae3ccf032b/4:3/w_2668,h_2001,c_limit/GettyImages-962650558.jpg",
+                video: "https://youtu.be/OXo9n2SCWt4?si=KziM-R-Ur0Rvjyo8"
             },
             {
-                title: "Tokyo Tower",
-                description: "A symbol of Japan's beauty.",
-                image: "https://example.com/tokyo_tower.jpg",
-                video: "https://example.com/tokyo_tower_video.mp4"
+                title: "Hokkaido",
+                description: "Renowned for its stunning natural landscapes, hot springs, and winter sports. Sapporo, the capital, is famous for its annual snow festival",
+                image: "https://rimage.gnst.jp/livejapan.com/public/article/detail/a/10/00/a1000113/img/basic/a1000113_main.jpg",
+                video: "https://youtu.be/zMACDOQXR9Y?si=PbQSeOX4hJ1HFbDe"
             },
             {
-                title: "Kyoto Temple",
-                description: "A beautiful historical landmark.",
-                image: "https://example.com/kyoto_temple.jpg",
-                video: "https://example.com/kyoto_temple_video.mp4"
+                title: "Hiroshima",
+                description: "Home to the Peace Memorial Park and Museum, which commemorate the victims of the atomic bombing in 1945",
+                image: "https://www.datocms-assets.com/101439/1716180100-hiroshima.webp?auto=format&fit=max&w=1200",
+                video: "https://youtu.be/mPpQ2X3Esxo?si=WZMsxuICXQyXVvvR"
             }
         ];
 
@@ -345,16 +358,14 @@
             detailsSection.style.backgroundImage = `url(${spot.image})`;
             document.querySelector(".details-title").textContent = spot.title;
             document.querySelector(".details-description").textContent = spot.description;
-            document.querySelector(".details-video-holder video").src = spot.video;
+            document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
             detailsSection.classList.add("show");
         }
 
-        function nextSlide() {
-            // Logic to display the next slide (spot)
-        }
-
-        function prevSlide() {
-            // Logic to display the previous slide (spot)
+        function getYouTubeVideoId(url) {
+            const regex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+            const match = url.match(regex);
+            return match ? match[1] : null;
         }
 
         displaySpots();
