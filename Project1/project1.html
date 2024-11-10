@@ -91,7 +91,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
-            transition: transform 0.5s ease; /* Smooth transition */
+            transition: transform 0.5s ease;
         }
 
         .spot-card-body {
@@ -103,7 +103,7 @@
         }
 
         .spot-card.clicked img {
-            transform: translateY(80px); /* Moves the image down */
+            transform: translateY(60px);
         }
 
         /* Parallax Scrolling Effect */
@@ -353,14 +353,20 @@
         }
 
         function showDetails(index) {
-            const detailsSection = document.getElementById("detailsSection");
-            const spot = spots[index];
-            detailsSection.style.backgroundImage = `url(${spot.image})`;
-            document.querySelector(".details-title").textContent = spot.title;
-            document.querySelector(".details-description").textContent = spot.description;
-            document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
-            detailsSection.classList.add("show");
-        }
+    const detailsSection = document.getElementById("detailsSection");
+    const spot = spots[index];
+    detailsSection.style.backgroundImage = `url(${spot.image})`;
+    document.querySelector(".details-title").textContent = spot.title;
+    document.querySelector(".details-description").textContent = spot.description;
+    document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
+    detailsSection.classList.add("show");
+
+    // Scroll to the details section smoothly
+    detailsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
 
         function getYouTubeVideoId(url) {
             const regex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
