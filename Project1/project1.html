@@ -42,9 +42,9 @@
         .hero-content {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 300px;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: left;
         }
 
         .hero-title {
@@ -52,7 +52,6 @@
             font-weight: bold;
         }
 
-        /* Info Section */
         .info-section {
             display: flex;
             justify-content: space-around;
@@ -71,7 +70,6 @@
             margin-bottom: 10px;
         }
 
-        /* Favorite Spots Section */
         .favorite-spots {
             padding: 40px 20px;
             text-align: center;
@@ -93,7 +91,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease; /* Smooth transition */
         }
 
         .spot-card-body {
@@ -105,7 +103,7 @@
         }
 
         .spot-card.clicked img {
-            transform: translateY(50px);
+            transform: translateY(50px); /* Moves the image down */
         }
 
         .nav-buttons {
@@ -132,7 +130,7 @@
             background-color: #666;
         }
 
-        /* Details Section */
+        /* Parallax Scrolling Effect */
         .details-section {
             display: none;
             position: relative;
@@ -162,9 +160,9 @@
         .details-content {
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 300px;
             transform: translate(-50%, -50%);
-            text-align: center;
+            text-align: left;
         }
 
         .details-title {
@@ -177,68 +175,6 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        /* Media Queries for Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .info-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .info-section div {
-                margin-bottom: 20px;
-            }
-
-            .favorite-spots h2 {
-                font-size: 2rem;
-            }
-
-            .spot-card img {
-                height: 150px;
-            }
-
-            .details-title {
-                font-size: 2.5rem;
-            }
-
-            .details-description {
-                font-size: 1rem;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .spot-card img {
-                height: 120px;
-            }
-
-            .nav-buttons button {
-                font-size: 1.2rem;
-                width: 40px;
-                height: 40px;
-            }
-
-            .details-title {
-                font-size: 2rem;
-            }
-
-            .details-description {
-                font-size: 0.9rem;
-                max-width: 100%;
-            }
         }
     </style>
 </head>
@@ -316,42 +252,67 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Array of favorite spots with image URLs, titles, and descriptions
         const spots = [
-            { name: "Kyoto", description: "Kyoto is known for its classical Buddhist temples, gardens, imperial palaces, and traditional wooden houses.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Kyoto_-_View_of_Arashiyama_in_Fall_2009.jpg" },
-            { name: "Tokyo", description: "Tokyo offers a combination of traditional culture and modern technology, along with fantastic shopping and dining.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Tokyo_skyline_from_Roppongi_Hills.jpg" },
-            { name: "Hokkaido", description: "Hokkaido is known for its beautiful snow landscapes, hot springs, and incredible skiing destinations.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/42/Hokkaido_Japan_Snow_Mountains.jpg" },
-            { name: "Okinawa", description: "Okinawa is famous for its tropical climate, beautiful beaches, and rich cultural heritage.", imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Okinawa_-_Cape_Zanpa.jpg" }
+            { img: "https://via.placeholder.com/1200x800?text=Shrine", title: "Ancient Shrine", description: "Visit a historic shrine." },
+            { img: "https://via.placeholder.com/1200x800?text=Temple", title: "Temple of Peace", description: "A peaceful temple in Kyoto." },
+            { img: "https://via.placeholder.com/1200x800?text=Castle", title: "Imperial Castle", description: "Explore the grandeur of the castle." },
+            { img: "https://via.placeholder.com/1200x800?text=Mountain", title: "Mount Fuji", description: "Hike Japan's iconic peak." },
+            { img: "https://via.placeholder.com/1200x800?text=Park", title: "Cherry Blossom Park", description: "A breathtaking park filled with cherry blossoms." },
+            { img: "https://via.placeholder.com/1200x800?text=Market", title: "Famous Market", description: "Discover traditional markets." },
+            { img: "https://via.placeholder.com/1200x800?text=Beach", title: "Golden Beach", description: "Relax on Japan's beautiful coast." },
+            { img: "https://via.placeholder.com/1200x800?text=Village", title: "Mountain Village", description: "Experience rural life in Japan." }
         ];
 
-        let currentIndex = 0;
+        let currentSlideIndex = 0;
 
-        function updateSpotCard() {
-            const spot = spots[currentIndex];
-            const spotCard = document.createElement('div');
-            spotCard.classList.add('col-md-3', 'col-sm-6');
-            spotCard.classList.add('spot-card');
-            spotCard.innerHTML = `
-                <img src="${spot.imageUrl}" alt="${spot.name}">
-                <div class="spot-card-body">
-                    <h5>${spot.name}</h5>
-                    <p>${spot.description}</p>
-                </div>
-            `;
-            document.getElementById('spot-cards').innerHTML = '';
-            document.getElementById('spot-cards').appendChild(spotCard);
-        }
+        function displaySpots() {
+            const spotsContainer = document.getElementById('spot-cards');
+            spotsContainer.innerHTML = '';
+            const currentSpots = spots.slice(currentSlideIndex, currentSlideIndex + 4);
 
-        function prevSlide() {
-            currentIndex = (currentIndex === 0) ? spots.length - 1 : currentIndex - 1;
-            updateSpotCard();
+            currentSpots.forEach(spot => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-3');
+                card.innerHTML = `
+                    <div class="spot-card" onclick="showDetails('${spot.title}', '${spot.description}', this)">
+                        <img src="${spot.img}" alt="${spot.title}">
+                        <div class="spot-card-body">
+                            <h5>${spot.title}</h5>
+                        </div>
+                    </div>
+                `;
+                spotsContainer.appendChild(card);
+            });
         }
 
         function nextSlide() {
-            currentIndex = (currentIndex === spots.length - 1) ? 0 : currentIndex + 1;
-            updateSpotCard();
+            currentSlideIndex += 4;
+            if (currentSlideIndex >= spots.length) currentSlideIndex = 0;
+            displaySpots();
         }
 
-        updateSpotCard();
+        function prevSlide() {
+            currentSlideIndex -= 4;
+            if (currentSlideIndex < 0) currentSlideIndex = Math.max(0, spots.length - 4);
+            displaySpots();
+        }
+
+        function showDetails(title, description, element) {
+            const detailsSection = document.getElementById('details-section');
+            const detailsTitle = document.getElementById('details-title');
+            const detailsDescription = document.getElementById('details-description');
+            detailsTitle.textContent = title;
+            detailsDescription.textContent = description;
+            detailsSection.classList.add('show');
+            window.scrollTo(0, detailsSection.offsetTop);
+
+            // Toggle the clicked class to animate the image
+            const img = element.querySelector('img');
+            img.classList.toggle('clicked');
+        }
+
+        displaySpots(); // Initial call to display spots
     </script>
 
 </body>
