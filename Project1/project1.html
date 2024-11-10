@@ -23,7 +23,7 @@
         .hero {
             position: relative;
             height: 100vh;
-            background-image: url('https://www.jonnymelon.com/wp-content/uploads/2018/10/sohoton-cove-26.jpg'); 
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/653/870/546/stars-gate-japan-the-milky-way-wallpaper-preview.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -36,13 +36,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
             position: absolute;
             top: 50%;
-            left: 300px;
+            left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
         }
@@ -103,31 +102,7 @@
         }
 
         .spot-card.clicked img {
-            transform: translateY(50px); /* Moves the image down */
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .nav-buttons button {
-            background-color: #444;
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            margin: 0 10px;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        .nav-buttons button:hover {
-            background-color: #666;
+            transform: translateY(60px); /* Moves the image down */
         }
 
         /* Parallax Scrolling Effect */
@@ -145,7 +120,7 @@
         .details-section.show {
             display: block;
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(60px);
         }
 
         .details-overlay {
@@ -157,24 +132,78 @@
             background: rgba(0, 0, 0, 0.5);
         }
 
+        .details-section {
+            display: flex;
+            position: relative;
+            justify-content: space-between;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
         .details-content {
-            position: absolute;
-            top: 50%;
-            left: 300px;
-            transform: translate(-50%, -50%);
+            flex: 1;
+            position: relative;
+            top: 30%;
+            left: 10%;
+            transform: translateY(-50%);
             text-align: left;
+            padding: 20px;
+            max-width: 50%; 
         }
 
         .details-title {
-            font-size: 3rem;
+            font-size: 5vw; 
             font-weight: bold;
             margin-bottom: 10px;
         }
 
         .details-description {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        
+        .details-video-holder {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 30%;
+            transform: translateY(-50%);
+            padding: 20px;
+        }
+
+        .details-video-holder video {
+            width: 100%; 
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .details-title {
+                font-size: 8vw; 
+            }
+
+            .details-description {
+                font-size: 1.2rem;
+            }
+
+            .details-video-holder {
+                max-width: 100%; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .details-title {
+                font-size: 10vw; /* Make title larger on very small screens */
+            }
+
+            .details-description {
+                font-size: 1rem; /* Further adjust description size */  
+            }
         }
     </style>
 </head>
@@ -233,87 +262,108 @@
             </div>
         </div>
         
-        <!-- Navigation Buttons -->
-        <div class="nav-buttons">
-            <button onclick="prevSlide()">&lt;</button>
-            <button onclick="nextSlide()">&gt;</button>
-        </div>
+
     </section>
 
-    <!-- Details Section -->
-    <section id="details-section" class="details-section">
+    <!-- Detailed View Section -->
+    <section class="details-section" id="detailsSection">
         <div class="details-overlay"></div>
         <div class="details-content">
-            <h3 id="details-title" class="details-title"></h3>
-            <p id="details-description" class="details-description"></p>
+            <h2 class="details-title">Spot Title</h2>
+            <p class="details-description">Detailed description of the spot.</p>
+        </div>
+        <div class="details-video-holder">
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Array of favorite spots with image URLs, titles, and descriptions
-        const spots = [
-            { img: "https://via.placeholder.com/1200x800?text=Shrine", title: "Ancient Shrine", description: "Visit a historic shrine." },
-            { img: "https://via.placeholder.com/1200x800?text=Temple", title: "Temple of Peace", description: "A peaceful temple in Kyoto." },
-            { img: "https://via.placeholder.com/1200x800?text=Castle", title: "Imperial Castle", description: "Explore the grandeur of the castle." },
-            { img: "https://via.placeholder.com/1200x800?text=Mountain", title: "Mount Fuji", description: "Hike Japan's iconic peak." },
-            { img: "https://via.placeholder.com/1200x800?text=Park", title: "Cherry Blossom Park", description: "A breathtaking park filled with cherry blossoms." },
-            { img: "https://via.placeholder.com/1200x800?text=Market", title: "Famous Market", description: "Discover traditional markets." },
-            { img: "https://via.placeholder.com/1200x800?text=Beach", title: "Golden Beach", description: "Relax on Japan's beautiful coast." },
-            { img: "https://via.placeholder.com/1200x800?text=Village", title: "Mountain Village", description: "Experience rural life in Japan." }
+        let spots = [
+            {
+                title: "Tokyo",
+                description: "A bustling metropolis that perfectly blends the old and the new. From ancient temples like Senso-ji to modern marvels like Tokyo Skytree, Tokyo offers a unique cultural experience. Don't miss the vibrant neighborhoods of Shibuya and Shinjuku.",
+                image: "https://media.cntraveler.com/photos/63482b255e7943ad4006df0b/16:9/w_2560%2Cc_limit/tokyoGettyImages-1031467664.jpeg",
+                video: "https://example.com/tokyo_tower_video.mp4"
+            },
+            {
+                title: "Tokyo Tower",
+                description: "A symbol of Japan's beauty.",
+                image: "https://example.com/tokyo_tower.jpg",
+                video: "https://example.com/tokyo_tower_video.mp4"
+            },
+            {
+                title: "Tokyo Tower",
+                description: "A symbol of Japan's beauty.",
+                image: "https://example.com/tokyo_tower.jpg",
+                video: "https://example.com/tokyo_tower_video.mp4"
+            },
+            {
+                title: "Tokyo Tower",
+                description: "A symbol of Japan's beauty.",
+                image: "https://example.com/tokyo_tower.jpg",
+                video: "https://example.com/tokyo_tower_video.mp4"
+            },
+            {
+                title: "Tokyo Tower",
+                description: "A symbol of Japan's beauty.",
+                image: "https://example.com/tokyo_tower.jpg",
+                video: "https://example.com/tokyo_tower_video.mp4"
+            },
+            {
+                title: "Kyoto Temple",
+                description: "A beautiful historical landmark.",
+                image: "https://example.com/kyoto_temple.jpg",
+                video: "https://example.com/kyoto_temple_video.mp4"
+            }
         ];
 
-        let currentSlideIndex = 0;
-
         function displaySpots() {
-            const spotsContainer = document.getElementById('spot-cards');
-            spotsContainer.innerHTML = '';
-            const currentSpots = spots.slice(currentSlideIndex, currentSlideIndex + 4);
-
-            currentSpots.forEach(spot => {
-                const card = document.createElement('div');
-                card.classList.add('col-md-3');
-                card.innerHTML = `
-                    <div class="spot-card" onclick="showDetails('${spot.title}', '${spot.description}', this)">
-                        <img src="${spot.img}" alt="${spot.title}">
-                        <div class="spot-card-body">
-                            <h5>${spot.title}</h5>
+            let spotsContainer = document.getElementById("spot-cards");
+            spotsContainer.innerHTML = ""; // Clear existing spots
+            spots.forEach((spot, index) => {
+                let card = `
+                    <div class="col-md-4">
+                        <div class="spot-card" onclick="showDetails(${index})">
+                            <img src="${spot.image}" alt="${spot.title}">
+                            <div class="spot-card-body">
+                                <h5>${spot.title}</h5>
+                                <p>${spot.description}</p>
+                            </div>
                         </div>
                     </div>
                 `;
-                spotsContainer.appendChild(card);
+                spotsContainer.innerHTML += card;
             });
         }
 
+        function showDetails(index) {
+            const detailsSection = document.getElementById("detailsSection");
+            const spot = spots[index];
+            detailsSection.style.backgroundImage = `url(${spot.image})`;
+            document.querySelector(".details-title").textContent = spot.title;
+            document.querySelector(".details-description").textContent = spot.description;
+            document.querySelector(".details-video-holder video").src = spot.video;
+            detailsSection.classList.add("show");
+        }
+
         function nextSlide() {
-            currentSlideIndex += 4;
-            if (currentSlideIndex >= spots.length) currentSlideIndex = 0;
-            displaySpots();
+            // Logic to display the next slide (spot)
         }
 
         function prevSlide() {
-            currentSlideIndex -= 4;
-            if (currentSlideIndex < 0) currentSlideIndex = Math.max(0, spots.length - 4);
-            displaySpots();
+            // Logic to display the previous slide (spot)
         }
 
-        function showDetails(title, description, element) {
-            const detailsSection = document.getElementById('details-section');
-            const detailsTitle = document.getElementById('details-title');
-            const detailsDescription = document.getElementById('details-description');
-            detailsTitle.textContent = title;
-            detailsDescription.textContent = description;
-            detailsSection.classList.add('show');
-            window.scrollTo(0, detailsSection.offsetTop);
-
-            // Toggle the clicked class to animate the image
-            const img = element.querySelector('img');
-            img.classList.toggle('clicked');
-        }
-
-        displaySpots(); // Initial call to display spots
+        displaySpots();
     </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
