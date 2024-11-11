@@ -246,6 +246,7 @@
         <div class="hero-content text-white">
             <h1 class="hero-title">JAPAN</h1>
             <p>Welcome to the Japan guide</p>
+            <button class="btn btn-primary mt-3" onclick="scrollToSpots()">Explore Spots</button>
         </div>
     </section>
 
@@ -365,6 +366,12 @@
     detailsSection.scrollIntoView({
         behavior: "smooth",
         block: "start"
+    });
+}
+        function scrollToSpots() {
+          document.querySelector(".favorite-spots").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
     });
 }
 
