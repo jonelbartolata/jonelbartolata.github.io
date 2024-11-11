@@ -12,44 +12,44 @@
       background-image: url('https://static.vecteezy.com/system/resources/thumbnails/047/021/173/small_2x/lush-rainforest-canopy-revealed-in-dappled-sunlight-from-forest-floor-background-desktop-wallpaper-photo.jpeg'); /* Default background image */
       background-size: cover;
       background-position: center;
-      transition: background-image 0.5s ease; /* Smooth transition for background image */
+      transition: background-image 0.5s ease;
     }
     h1, p {
       color: #ffffff; 
     }
     .carousel-container {
       border-radius: 20px;
-      overflow: hidden; /* Ensures the rounded border applies to images */
+      overflow: hidden; 
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .carousel-item {
-      height: 320px; /* Reduced height for the carousel items */
+      height: 320px; 
     }
     .carousel-item img {
-      height: 100%; /* Make image height 100% of the carousel item */
-      object-fit: cover; /* Ensure the image covers the entire item without stretching */
-      width: 100%; /* Set image width to 100% */
+      height: 100%;
+      object-fit: cover; 
+      width: 100%;
     }
     /* Transparent Navbar */
     .navbar {
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      background-color: rgba(0, 0, 0, 0.5); 
     }
     .carousel-caption {
       position: absolute;
-      bottom: 20px; /* Position the caption at the bottom of the carousel */
+      bottom: 20px;
       left: 0;
       right: 0;
       color: #ffffff;
-      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-      padding: 10px; /* Padding around the text */
-      border-radius: 5px; /* Rounded corners for the caption */
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px; 
+      border-radius: 5px;
     }
     .carousel-indicators [data-bs-target] {
-      background-color: #fff; /* White color for the indicators */
-      opacity: 0.5; /* Slight transparency */
+      background-color: #fff; 
+      opacity: 0.5; 
     }
     .carousel-indicators .active {
-      opacity: 1; /* Fully opaque for the active indicator */
+      opacity: 1; 
     }
   </style>
 </head>
@@ -172,7 +172,7 @@
     const titleElement = document.getElementById('projectTitle');
     const descriptionElement = document.getElementById('projectDescription');
     const learnMoreButton = document.getElementById('learnMoreButton');
-    const body = document.body; // Reference to the body for changing the background
+    const body = document.body; 
 
     function updateContent(index) {
       const item = carouselItems[index];
@@ -193,7 +193,7 @@
       updateContent(event.to);
     });
 
-    // Initialize content for the first slide
+    
     updateContent(0);
   </script>
 </body>
