@@ -9,7 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/047/021/173/small_2x/lush-rainforest-canopy-revealed-in-dappled-sunlight-from-forest-floor-background-desktop-wallpaper-photo.jpeg'); 
+      background-image: url('https://static.vecteezy.com/system/resources/thumbnails/047/021/173/small_2x/lush-rainforest-canopy-revealed-in-dappled-sunlight-from-forest-floor-background-desktop-wallpaper-photo.jpeg');
+      background-size: cover;
       background-position: center;
       transition: background-image 0.5s ease;
     }
@@ -29,6 +30,7 @@
       object-fit: cover; 
       width: 100%;
     }
+ 
     .navbar {
       background-color: rgba(0, 0, 0, 0.5); 
     }
@@ -79,7 +81,6 @@
         <button class="btn btn-success btn-lg mt-3" id="learnMoreButton">Learn More</button>
       </div>
 
-      
       <div class="col-md-6">
         <div class="carousel-container">
           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -158,9 +159,9 @@
       </div>
     </div>
   </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     const carouselItems = document.querySelectorAll('.carousel-item');
     const titleElement = document.getElementById('projectTitle');
     const descriptionElement = document.getElementById('projectDescription');
@@ -175,7 +176,6 @@
         window.open(item.getAttribute('data-link'), '_blank');
       };
 
-     
       const bgImage = item.getAttribute('data-bgimage');
       body.style.backgroundImage = `url(${bgImage})`;
     }
