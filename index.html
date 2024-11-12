@@ -173,7 +173,7 @@
       titleElement.textContent = item.getAttribute('data-title');
       descriptionElement.textContent = item.getAttribute('data-description');
       learnMoreButton.onclick = function() {
-        window.open(item.getAttribute('data-link'), '_blank');
+        window.location.href = item.getAttribute('data-link');
       };
 
       const bgImage = item.getAttribute('data-bgimage');
