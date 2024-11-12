@@ -19,7 +19,6 @@
             background-color: transparent;
         }
 
-        /* Parallax Effect for Hero Section */
         .hero {
             position: relative;
             height: 100vh;
@@ -106,7 +105,6 @@
             transform: translateY(60px);
         }
 
-        /* Parallax Scrolling Effect */
         .details-section {
             display: none;
             position: relative;
@@ -135,40 +133,40 @@
 
         .details-section {
     display: flex;
-    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+    flex-wrap: wrap;
     position: relative;
     justify-content: space-between;
-    height: auto; /* Adjust height for mobile */
+    height: auto;
     background-size: cover;
     background-position: center;
         }
 
         .details-content {
-    flex: 1 1 100%; /* Allow it to take full width on smaller screens */
+    flex: 1 1 100%; 
     position: relative;
     top: 120px;
     transform: translateY(-50%);
     text-align: center;
     padding: 20px;
-    max-width: 100%; /* Remove max-width to allow flexibility */
+    max-width: 100%; 
 }
         
 
 .details-title {
-    font-size: 4rem; /* Adjust title size */
+    font-size: 4rem;
     font-weight: bold;
     margin-bottom: 10px;
         }
 
         .details-description {
-    font-size: 1.2rem; /* Reduce font size for mobile */
+    font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
         }
 
         
         .details-video-holder {
-    flex: 1 1 100%; /* Ensure video holder takes full width on smaller screens */
+    flex: 1 1 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,11 +204,11 @@
 
 @media (max-width: 480px) {
     .details-title {
-        font-size: 8vw; /* Make title larger on very small screens */
+        font-size: 8vw; 
     }
 
     .details-description {
-        font-size: 0.9rem; /* Further adjust description size */
+        font-size: 0.9rem; 
     }
 
     .details-content {
@@ -227,7 +225,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="/index.html">Project 1</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -240,7 +237,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section (with Parallax effect) -->
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content text-white">
@@ -250,7 +246,6 @@
         </div>
     </section>
 
-    <!-- Info Section -->
     <div class="info-section" >
         <div>
             <i class="fas fa-map-marker-alt info-icon"></i>
@@ -269,19 +264,16 @@
         </div>
     </div>
 
-    <!-- Favorite Spots Section -->
     <section class="favorite-spots">
         <h2>Favorite Spots</h2>
         <div class="container">
             <div class="row" id="spot-cards">
-                <!-- Spot cards will be dynamically inserted here -->
             </div>
         </div>
         
 
     </section>
 
-    <!-- Detailed View Section -->
     <section class="details-section" id="detailsSection">
         <div class="details-overlay"></div>
         <div class="details-content">
@@ -336,7 +328,7 @@
 
         function displaySpots() {
             let spotsContainer = document.getElementById("spot-cards");
-            spotsContainer.innerHTML = ""; // Clear existing spots
+            spotsContainer.innerHTML = ""; 
             spots.forEach((spot, index) => {
                 let card = `
                     <div class="col-md-4">
@@ -362,7 +354,6 @@
     document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
     detailsSection.classList.add("show");
 
-    // Scroll to the details section smoothly
     detailsSection.scrollIntoView({
         behavior: "smooth",
         block: "start"
@@ -383,8 +374,6 @@
 
         displaySpots();
     </script>
-
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
