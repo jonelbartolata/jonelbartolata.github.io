@@ -24,6 +24,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            top: 100px;
             width: 100%;
         }
 
@@ -158,12 +159,11 @@
         }
     </style>
 </head>
-<button class="back-button" onclick="goBack()">←</button>
 <body>
+    <button class="back-button" onclick="goBack()">←</button>
     <h1>
      League of Legends Champions
     </h1>
-    
     <div class="search-container">
         <input type="text" id="search-bar" class="form-control" placeholder="Search for a champion" oninput="searchChampion()">
     </div>
