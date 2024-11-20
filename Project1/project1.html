@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -22,7 +24,7 @@
         .hero {
             position: relative;
             height: 100vh;
-            background-image: url('https://c4.wallpaperflare.com/wallpaper/653/870/546/stars-gate-japan-the-milky-way-wallpaper-preview.jpg'); 
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/653/870/546/stars-gate-japan-the-milky-way-wallpaper-preview.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -132,102 +134,104 @@
         }
 
         .details-section {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: space-between;
-    height: auto;
-    background-size: cover;
-    background-position: center;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            justify-content: space-between;
+            height: auto;
+            background-size: cover;
+            background-position: center;
         }
 
         .details-content {
-    flex: 1 1 100%; 
-    position: relative;
-    top: 120px;
-    transform: translateY(-50%);
-    text-align: center;
-    padding: 20px;
-    max-width: 100%; 
-}
-        
+            flex: 1 1 100%;
+            position: relative;
+            top: 120px;
+            transform: translateY(-50%);
+            text-align: center;
+            padding: 20px;
+            max-width: 100%;
+        }
 
-.details-title {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+        .details-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .details-description {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
         }
 
-        
+
         .details-video-holder {
-    flex: 1 1 100%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: 200px;
-    transform: translateY(-50%);
-    padding: 20px;
+            flex: 1 1 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 300px;
+            transform: translateY(-50%);
+            padding: 20px;
         }
 
         .details-video-holder iframe {
-        width: 80%; 
-        max-width: 600px;
-        height: 350px; 
-        border-radius: 10px;
-    }
-        
-@media (max-width: 768px) {
-    .details-title {
-        font-size: 6vw; 
-    }
+            width: 80%;
+            max-width: 600px;
+            height: 350px;
+            border-radius: 10px;
+        }
 
-    .details-description {
-        font-size: 1rem; 
-    }
+        @media (max-width: 767px) {
+            .details-title {
+                font-size: 6vw;
+            }
 
-    .details-content {
-        padding: 10px;
-    }
+            .details-description {
+                font-size: 1rem;
+            }
 
-    .details-video-holder {
-        max-width: 100%;
-        padding: 10px;
-    }
-}
+            .details-content {
+                padding: 10px;
+            }
 
-@media (max-width: 480px) {
-    .details-title {
-        font-size: 8vw; 
-    }
+            .details-video-holder {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
 
-    .details-description {
-        font-size: 0.9rem; 
-    }
+        @media (max-width: 480px) {
+            .details-title {
+                font-size: 8vw;
+            }
 
-    .details-content {
-        padding: 10px;
-        text-align: center;
-    }
+            .details-description {
+                font-size: 0.9rem;
+            }
 
-    .details-video-holder {
-        max-width: 100%;
-        padding: 10px;
-    }
-}
+            .details-content {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .details-video-holder {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="/index.html">Project 1</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -246,7 +250,7 @@
         </div>
     </section>
 
-    <div class="info-section" >
+    <div class="info-section">
         <div>
             <i class="fas fa-map-marker-alt info-icon"></i>
             <p>Guided Tours</p>
@@ -270,7 +274,7 @@
             <div class="row" id="spot-cards">
             </div>
         </div>
-        
+
 
     </section>
 
@@ -281,9 +285,11 @@
             <p class="details-description">Detailed description of the spot.</p>
         </div>
         <div class="details-video-holder">
-            <iframe id="videoFrame" width="100%" height="auto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="videoFrame" width="100%" height="auto" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
-        
+
     </section>
 
     <script>
@@ -328,7 +334,7 @@
 
         function displaySpots() {
             let spotsContainer = document.getElementById("spot-cards");
-            spotsContainer.innerHTML = ""; 
+            spotsContainer.innerHTML = "";
             spots.forEach((spot, index) => {
                 let card = `
                     <div class="col-md-4">
@@ -346,25 +352,25 @@
         }
 
         function showDetails(index) {
-    const detailsSection = document.getElementById("detailsSection");
-    const spot = spots[index];
-    detailsSection.style.backgroundImage = `url(${spot.image})`;
-    document.querySelector(".details-title").textContent = spot.title;
-    document.querySelector(".details-description").textContent = spot.description;
-    document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
-    detailsSection.classList.add("show");
+            const detailsSection = document.getElementById("detailsSection");
+            const spot = spots[index];
+            detailsSection.style.backgroundImage = `url(${spot.image})`;
+            document.querySelector(".details-title").textContent = spot.title;
+            document.querySelector(".details-description").textContent = spot.description;
+            document.getElementById("videoFrame").src = `https://www.youtube.com/embed/${getYouTubeVideoId(spot.video)}`;
+            detailsSection.classList.add("show");
 
-    detailsSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
+            detailsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
         function scrollToSpots() {
-          document.querySelector(".favorite-spots").scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-    });
-}
+            document.querySelector(".favorite-spots").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
 
         function getYouTubeVideoId(url) {
             const regex = /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -379,4 +385,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
