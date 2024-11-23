@@ -246,7 +246,7 @@ header:after {
 
 .sky {
     position: absolute;
-    width: 100%;
+    width: 1350px;
     bottom: 200px;
     right: 0;
 }
@@ -276,7 +276,7 @@ header:after {
 }
 
 section {
-    width: 1350px;
+    width: 100%;
     background-color: #151515;
     position: relative;
 }
@@ -410,9 +410,5 @@ section {
 
     .title {
         font-size: 1.2rem;
-    }
-    .sky{
-        width: 100%;
-    bottom: 200px;
     }
 }
