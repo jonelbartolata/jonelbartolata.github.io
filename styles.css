@@ -246,7 +246,7 @@ header:after {
 
 .sky {
     position: absolute;
-    width: 1350px;
+    width: 100%;
     bottom: 200px;
     right: 0;
 }
