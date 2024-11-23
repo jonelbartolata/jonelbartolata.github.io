@@ -6,8 +6,425 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Parallax Scrolling Effect</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.projects-section {
+    padding: 20rem 4rem;
+    background-color: #151515;
+    color: #fff;
+    text-align: center;
+}
+
+.projects-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.projects-section .title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.projects-section .title::after {
+    content: '';
+    width: 100px;
+    height: 3px;
+    background-color: #007bff;
+    display: block;
+    margin: 1rem auto 0 auto;
+    border-radius: 2px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button-container a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-container a:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button-container a:active {
+    transform: translateY(0);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.contact-section {
+    padding: 5rem 2rem;
+    background-image: url("img/ProjectBackground.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-attachment: fixed;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background-color: #202020;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-card h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #007bff;
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #0056b3;
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.container {
+    max-width: 70rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    z-index: 100;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+header:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 25;
+}
+
+.trees {
+    position: absolute;
+    bottom: -80px;
+    height: 70%;
+    width: 1800px;
+    right: 0;
+    z-index: 19;
+}
+
+.mountain {
+    position: absolute;
+    width: 1200px;
+    bottom: -100px;
+    left: 0;
+    z-index: 18;
+}
+
+.mountain1 {
+    position: absolute;
+    width: 1400px;
+    height: 70%;
+    bottom: 5px;
+    right: 0;
+    z-index: 17;
+}
+
+.sky {
+    position: absolute;
+    width: 1350px;
+    bottom: 200px;
+    right: 0;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+.big-title {
+    position: absolute;
+    z-index: 30;
+    line-height: 4rem;
+    top: calc(50% - 2rem);
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+section {
+    width: 100%;
+    background-color: #151515;
+    position: relative;
+}
+
+.about-section {
+    padding: 10rem 2rem;
+    background-color: #151515;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content {
+    color: #fff;
+    max-width: 600px;
+}
+
+.profile-pic {
+    text-align: center;
+}
+
+.profile-pic img {
+    width: 500px;
+    height: 500px;
+    border: 3px solid #3498db;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    position: relative;
+}
+
+.border {
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 100%;
+    height: 300px;
+    width: 100%;
+    left: 0;
+    z-index: 20;
+    background: linear-gradient(to top, #151515, transparent);
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 200px;
+        padding: 1rem;
+        gap: 1rem;
+        border-radius: 0.5rem;
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+    }
+
+    .contact-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-card h1 {
+        font-size: 2rem;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .about-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .profile-pic img {
+        margin-bottom: 2rem;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .big-title {
+        font-size: 3rem;
+    }
+
+    .button-container a {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .text {
+        font-size: .8rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+}
+    </style>
 </head>
 
 <body>
@@ -99,7 +516,69 @@
             </div>
         </div>
     </section>
-    <script src="script.js">
+    <script>
+        const translate = document.querySelectorAll(".translate");
+const big_title = document.querySelector(".big-title");
+const header = document.querySelector("header");
+const shadow = document.querySelector(".shadow");
+const content = document.querySelector(".content");
+const section = document.querySelector("section");
+const image_container = document.querySelector(".imgContainer");
+const opacity = document.querySelectorAll(".opacity");
+const border = document.querySelector(".border");
+
+const carouselItems = document.querySelectorAll('.carousel-item');
+const titleElement = document.getElementById('projectTitle');
+const descriptionElement = document.getElementById('projectDescription');
+const learnMoreButton = document.getElementById('learnMoreButton');
+const body = document.body;
+
+
+let header_height = header.offsetHeight;
+let section_height = section.offsetHeight;
+
+
+window.addEventListener('scroll', () => {
+    let scroll = window.pageYOffset;
+    let sectionY = section.getBoundingClientRect();
+
+    translate.forEach(element => {
+        let speed = element.dataset.speed;
+        element.style.transform = `translateY(${scroll * speed}px)`;
+    });
+
+    opacity.forEach(element => {
+        element.style.opacity = scroll / (sectionY.top + section_height);
+    })
+
+    big_title.style.opacity = - scroll / (header_height / 2) + 1;
+    shadow.style.height = `${scroll * 0.5 + 300}px`;
+
+    content.style.transform = `translateY(${scroll / (section_height + sectionY.top) * 50 - 50}px)`;
+    image_container.style.transform = `translateY(${scroll / (section_height + sectionY.top) * -50 + 50}px)`;
+
+    border.style.width = `${scroll / (sectionY.top + section_height) * 30}%`;
+
+})
+const hamburgerMenu = document.getElementById("hamburger-menu");
+const navLinks = document.getElementById("nav-links");
+
+hamburgerMenu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+// Smooth Scroll functionality
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent the default action (jumping to the section)
+
+        // Scroll to the target section smoothly
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
     </script>
 </body>
 
