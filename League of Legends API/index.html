@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,9 +115,11 @@
             margin-right: 20px;
             object-fit: cover;
         }
+
         .champion-info div {
-            flex: 1; 
+            flex: 1;
         }
+
         .champion-info h2 {
             margin-top: 0;
         }
@@ -133,39 +136,45 @@
             flex: 1;
             margin-top: 20px;
         }
+
         @media (max-width: 768px) {
             .back-button {
                 width: 40px;
                 height: 40px;
                 font-size: 14px;
                 right: 5px;
-    }
+            }
+
             .champion-info {
                 flex-direction: column;
                 align-items: center;
             }
-            .champion-info img{
-                max-width: 100%; 
+
+            .champion-info img {
+                max-width: 50%;
                 margin-right: 0;
-                margin-bottom: 20px; 
+                margin-bottom: 20px;
             }
+
             .champion-container {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
 
             .search-container input {
-                width: 100%; 
+                width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <button class="back-button" onclick="goBack()">←</button>
     <h1>
-     League of Legends Champions
+        League of Legends Champions
     </h1>
     <div class="search-container">
-        <input type="text" id="search-bar" class="form-control" placeholder="Search for a champion" oninput="searchChampion()">
+        <input type="text" id="search-bar" class="form-control" placeholder="Search for a champion"
+            oninput="searchChampion()">
     </div>
     <div class="main-container container">
         <div class="champion-info" id="champion-info">
@@ -188,13 +197,13 @@
         let allChampions = [];
 
         async function fetchChampions() {
-            const url = "https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json"; 
+            const url = "https://ddragon.leagueoflegends.com/cdn/12.22.1/data/en_US/champion.json";
             try {
                 const response = await fetch(url);
                 const data = await response.json();
                 const champions = data.data;
 
-                allChampions = Object.values(champions); 
+                allChampions = Object.values(champions);
 
                 const container = document.getElementById('champion-container');
 
@@ -203,7 +212,7 @@
                     card.classList.add('champion-card');
                     card.addEventListener('click', () => {
                         displayChampionInfo(champion);
-                        scrollToTop(); 
+                        scrollToTop();
                     });
 
                     const imageUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`;
@@ -238,7 +247,7 @@
 
             infoContainer.style.opacity = 0;
             infoContainer.style.transform = 'translateY(50px)';
-            infoContainer.style.display = 'flex'; 
+            infoContainer.style.display = 'flex';
 
             const imageUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`;
             championImage.src = imageUrl;
@@ -295,4 +304,5 @@
         window.onload = fetchChampions;
     </script>
 </body>
+
 </html>
